@@ -9,7 +9,7 @@ using namespace std;
 
 int bfs(vector<vector<int > > G){
 	int n = G.size();
-	int count = 0;
+	int count = 1;
 	vector<bool > visited(n,false);
 	queue<int > q;
 	q.push(0);
