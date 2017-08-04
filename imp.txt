@@ -1,0 +1,3 @@
+1) Kadane's Algorithm
+2) Stk sorting we can change or define the comarision criteria ourselves
+3) Review soting question once again
