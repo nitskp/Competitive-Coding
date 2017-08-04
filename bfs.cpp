@@ -6,6 +6,7 @@ using namespace std;
 
 // function returns noofvertices in a graph
 // this graph has vertices value ranging from 0 - n-1 and is undirected 
+// doesn't work on dissconnected graph
 
 int bfs(vector<vector<int > > G){
 	int n = G.size();
