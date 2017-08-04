@@ -1,34 +1,21 @@
-// iterative approach for dfs
 #include <iostream>
 #include <vector>
-#include <stack>
 
 using namespace std;
 
-void dfs(vector<vector<int > > G, int q){
-	int n = G.size();
-	bool visited[n] = {false};
-	stack<int> s;
-	s.push(q);
-	visited[q] = true;
-	while(!s.empty()) {
-	    int temp = s.top();
-	    s.pop();
-	    cout<<temp<<" -> ";
-	    for(int i = 0; i < G[temp].size(); i++){
-	    	if(visited[G[temp][i]] == false)	
-	    	{
-	    		visited[G[temp][i]] = true;
-	    		s.push(G[temp][i]);
-	    }
-	}
-}
-
+void dfs(vector<vector<int> > G, int s, vector<bool > &visited){
+		visited[s] = true;
+		cout<<s<<" -> ";
+		for(int i = 0; i < G[s].size(); i++){
+			if(!visited[G[s][i]]){
+				dfs(G,G[s][i],visited);	
+			}
+		}
 }
 
 //input would be given by providing no. of edges and vertex
 /*
-13
+12
 13
 0 3
 0 2
@@ -51,6 +38,7 @@ int main(int argc, char const *argv[])
 	int m, n; // m = no. of  vertices and n = no. of vertices
 	cin>>m>>n;
 	G.resize(m);
+	vector<bool> visited(m,false);
 	for (int i = 0; i < n; ++i)
 	{
 		int x, y;
@@ -59,6 +47,6 @@ int main(int argc, char const *argv[])
 		G[y].push_back(x);
 	}
 
-	dfs(G,0);
+	dfs(G,0,visited);
 	return 0;
 }
